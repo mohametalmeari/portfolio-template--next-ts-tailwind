@@ -59,7 +59,7 @@ const Intro = () => {
         <span className="underline">{`React (Next.js)`}</span>
       </motion.p>
 
-      <div>
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium">
         <Link
           href="#contact"
           className="bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full justify-center"
@@ -72,7 +72,7 @@ const Intro = () => {
         <a className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full justify-center">
           <BsLinkedin />
         </a>
-        <a className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full justify-center">
+        <a className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full justify-center">
           <FaGithubSquare />
         </a>
       </div>
