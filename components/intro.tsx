@@ -5,6 +5,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
+import { HiDownload } from "react-icons/hi";
 
 const Intro = () => {
   return (
@@ -64,6 +65,11 @@ const Intro = () => {
         >
           Contact me here <BsArrowRight />
         </Link>
+        <a
+          className="bg-white px-7 py-3 flex items-center gap-2 rounded-full justify-center"
+        >
+          Download CV <HiDownload />
+        </a>
       </div>
     </section>
   );
