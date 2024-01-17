@@ -5,7 +5,7 @@ const Intro = () => {
   return (
     <section>
       <div className="flex items-center justify-center">
-        <div>
+        <div className="relative">
           <Image
             src="https://cdn-icons-png.flaticon.com/512/180/180658.png"
             alt="Personal Portrait"
@@ -15,6 +15,7 @@ const Intro = () => {
             priority={true}
             className="h-24 w-24 rounded-full object-cover bottom-[0.35rem] border-white shadow-lg"
           />
+          <span className="absolute bottom-0 right-0 text-4xl">👋</span>
         </div>
       </div>
     </section>
