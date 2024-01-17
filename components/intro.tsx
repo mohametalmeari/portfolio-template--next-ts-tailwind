@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
+import { FaGithubSquare } from "react-icons/fa";
 
 const Intro = () => {
   return (
@@ -70,6 +71,9 @@ const Intro = () => {
         </a>
         <a className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full justify-center">
           <BsLinkedin />
+        </a>
+        <a className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full justify-center">
+          <FaGithubSquare />
         </a>
       </div>
     </section>
