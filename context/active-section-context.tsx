@@ -10,8 +10,10 @@ type ActiveSectionContextProviderProps = {
 type ActiveSectionContextType = {
   activeSection: SectionName;
   setActiveSection: React.Dispatch<React.SetStateAction<SectionName>>;
+  timeOfLastClick: number;
+  setTimeOfLastClick: React.Dispatch<React.SetStateAction<number>>;
 };
- 
+
 const ActiveSectionContext = createContext<ActiveSectionContextType | null>(
   null
 ); // null means no default value
@@ -19,8 +21,16 @@ const ActiveSectionContextProvider = ({
   children,
 }: ActiveSectionContextProviderProps) => {
   const [activeSection, setActiveSection] = useState<SectionName>("Home");
+  const [timeOfLastClick, setTimeOfLastClick] = useState(0);
   return (
-    <ActiveSectionContext.Provider value={{ activeSection, setActiveSection }}>
+    <ActiveSectionContext.Provider
+      value={{
+        activeSection,
+        setActiveSection,
+        timeOfLastClick,
+        setTimeOfLastClick,
+      }}
+    >
       {children}
     </ActiveSectionContext.Provider>
   );
@@ -34,8 +44,8 @@ export const useActiveSectionContext = () => {
   if (context === null) {
     throw new Error(
       "useActiveSectionContext must be used within an ActiveSectionContextProvider"
-    )
+    );
   }
 
   return context;
-}
+};
