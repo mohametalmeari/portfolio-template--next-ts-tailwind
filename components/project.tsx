@@ -1,7 +1,7 @@
 "use client";
 
 import { projectsData } from "@/lib/data";
-import { useScroll, motion } from "framer-motion";
+import { useScroll, motion, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -13,16 +13,19 @@ const Project = ({ title, description, tags, imageUrl }: ProjectProps) => {
     target: ref,
     offset: ["0 1", "1.33 1"], // [start, end]
   });
+
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]); // [start, end]
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]); // [start, end]
   return (
     <motion.div // Wrap the section with div to ensure smooth motion
       ref={ref}
       style={{
-        scale: scrollYProgress,
-        opacity: scrollYProgress,
+        scale: scaleProgress,
+        opacity: opacityProgress,
       }}
-      className="mb-3 sm:mb-8 last:mb-0"
+      className="group mb-3 sm:mb-8 last:mb-0"
     >
-      <section className="group bg-gray-100 max-w-[42rem] border-black/5 overflow-hidden sm:pr-8 relative sm:h-[20rem] even:pl-8 hover:bg-gray-200 transition">
+      <section className="bg-gray-100 max-w-[42rem] border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] group-even:pl-8 hover:bg-gray-200 transition">
         <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full group-even:ml-[18rem]">
           <h3 className="text-2xl font-semibold">{title}</h3>
           <p className="mt-2 leading-relaxed text-gray-700">{description}</p>
