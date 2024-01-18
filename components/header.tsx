@@ -19,7 +19,7 @@ const Header = () => {
         <ul className="flex w-[22rem] flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 sm:w-[initial] sm:flex-nowrap sm:gap-5">
           {links.map((link) => (
             <motion.li
-              className="h-3/4 flex items-center justify-center"
+              className="h-3/4 flex items-center justify-center relative"
               key={link.hash}
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -34,6 +34,10 @@ const Header = () => {
                 href={link.hash}
               >
                 {link.name}
+
+                {link.name === activeSection && (
+                  <span className="bg-gray-100 rounded-full absolute inset-0 -z-10" />
+                )}
               </Link>
             </motion.li>
           ))}
