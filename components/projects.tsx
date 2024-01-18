@@ -5,7 +5,7 @@ import Project from "./project";
 
 const Projects = () => {
   return (
-    <section>
+    <section className="scroll-mt-8" id="projects">
       <SectionHeading>My projects</SectionHeading>
       <div>
         {projectsData.map((project, index) => (
