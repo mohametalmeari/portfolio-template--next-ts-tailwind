@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { links } from "@/lib/data";
 
 type SectionName = (typeof links)[number]["name"];
@@ -11,7 +11,7 @@ type ActiveSectionContextType = {
   activeSection: SectionName;
   setActiveSection: React.Dispatch<React.SetStateAction<SectionName>>;
 };
-
+ 
 const ActiveSectionContext = createContext<ActiveSectionContextType | null>(
   null
 ); // null means no default value
@@ -27,3 +27,15 @@ const ActiveSectionContextProvider = ({
 };
 
 export default ActiveSectionContextProvider;
+
+export const useActiveSectionContext = () => {
+  const context = useContext(ActiveSectionContext); // returns the provider value
+
+  if (context === null) {
+    throw new Error(
+      "useActiveSectionContext must be used within an ActiveSectionContextProvider"
+    )
+  }
+
+  return context;
+}
