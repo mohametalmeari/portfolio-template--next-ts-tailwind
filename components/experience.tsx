@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SectionHeading from "./section-heading";
 import {
   VerticalTimeline,
@@ -14,7 +14,7 @@ import { useTheme } from "@/context/theme-context";
 const Experience = () => {
   const { ref, inView } = useSectionInView("Experience");
   const { theme } = useTheme();
-  const [isVisible, setIsVisible] = React.useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (inView) {
