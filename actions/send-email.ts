@@ -1,6 +1,6 @@
 "use server";
 
-import { validateSting } from "@/lib/utils";
+import { getErrorMessage, validateSting } from "@/lib/utils";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -23,13 +23,15 @@ export const sendEmail = async (formData: FormData) => {
 
   try {
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "Contact Form <onboarding@resend.dev>",
       to: "mohamet.almeari@gmail.com",
       subject: "Message from contact form",
       reply_to: senderEmail as string, // because we validated it above we know it's a string
       text: message as string, // because we validated it above we know it's a string
     });
   } catch (error) {
-    console.log(error);
+    return {
+      error: getErrorMessage(error),
+    };
   }
 };
