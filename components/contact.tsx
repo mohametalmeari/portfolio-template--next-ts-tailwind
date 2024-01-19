@@ -17,6 +17,7 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }} // animate on scroll
       transition={{ duration: 1 }}
+      viewport={{ once: true }} // animate only once
     >
       <SectionHeading>Contact me</SectionHeading>
       <p className="text-gray-700 -mt-6">
