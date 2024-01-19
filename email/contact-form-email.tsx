@@ -19,16 +19,19 @@ type ContactFormEmailProps = {
   senderEmail: string;
 };
 
-export const ContactFormEmail = ({ message, senderEmail }: ContactFormEmailProps) => {
+export const ContactFormEmail = ({
+  message,
+  senderEmail,
+}: ContactFormEmailProps) => {
   return (
     <Html>
       <Head />
       <Preview>New message from portfolio site</Preview>
       <Tailwind>
-        <Body>
+        <Body className="bg-gray-100">
           <Container>
-            <Section>
-              <Heading>
+            <Section className="bg-white borderBlack my-10 px-10 py-4 rounded-md">
+              <Heading className="leading-tight text-black">
                 You received the following message from the contact form
               </Heading>
               <Text>{message}</Text>
